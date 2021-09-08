@@ -36,14 +36,17 @@ const parseCsvStringToArrayOfObjects = (csvString, delimiter = ",") => {
   csvRowsWithoutHeaders.forEach((row) => {
     //  empty object that we will populate with data from each row
     const productObject = {};
+
     //  split row into an array
     const arrayOfRow = row.split(delimiter);
+
     //  loop over each item in the array, matching it up
     //  with the correct csv header by index, and adding both
     //  the header and data as key: value pair to product object
     arrayOfRow.forEach((item, index) => {
       productObject[csvHeaders[index]] = item.trim();
     });
+
     //  push the product object to the array of product objects
     arrayOfProductObjects.push(productObject);
   });
